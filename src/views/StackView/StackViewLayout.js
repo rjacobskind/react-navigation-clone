@@ -207,7 +207,11 @@ class StackViewLayout extends React.Component {
       mode,
     } = this.props;
     const { index } = navigation.state;
-    const { options } = scene.descriptor;
+    const options = scene.descriptor &&
+                    scene.descriptor.options
+                      ? scene.descriptor.options
+                      : {};
+
     const isVertical =
       mode === 'modal' ||
       options.gestureDirection === 'up' ||
